@@ -3,7 +3,9 @@
  * 2215. Find the Difference of Two Arrays
  */
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Test0205244 {
 
@@ -15,6 +17,8 @@ public class Test0205244 {
     }
 
     public static List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
+        int arr1[] = 
+        HashSet<Integer> set = Arrays.stream(nums1).boxed().collect(Collectors.toSet());
         return null;
     }
 }
