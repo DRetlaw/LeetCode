@@ -4,8 +4,6 @@
  */
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class Test0305244 {
 
@@ -15,7 +13,8 @@ public class Test0305244 {
         int [] spells = {3,1,2}, potions = {8,5,8};
         int success = 16;
         //int success = 7;
-        System.out.println(successfulPairs(spells, potions, success));
+        //System.out.println(successfulPairs(spells, potions, success));
+        System.out.println((long)(68460*98460));
         System.out.println("Done!!!");
     }
 
@@ -30,20 +29,11 @@ public class Test0305244 {
             while (lo<=hi) {
                 mid = (lo+hi)/2;
                 if(spells[i]*potions[mid]>=success)
-                {
                     hi = mid -1;
-                }
                 else
-                {
                     lo = mid +1;
-                }
-                
             }
-            pairs[i]= potions.length-hi-1;
-        }
-
-        for (int i : pairs) {
-            System.out.println(i);
+            pairs[i]= potions.length-lo;
         }
         return pairs;
     }
