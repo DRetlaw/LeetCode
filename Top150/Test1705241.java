@@ -7,37 +7,48 @@
 
 public class Test1705241 {
     
-
+static TNode head;
     public static void main(String[] args) {
         Tree tree=new Tree(5);
-        System.out.println(reverseList(tree.head));
+        tree.insertNode(3);
+        tree.insertNode(10);
+        tree.traverse();
+        TNode lasTNode=reverseList(tree.head);
+        lasTNode.next=null;
+        tree.head=head;
+        tree.traverse();
+        //System.out.println(reverseList(tree.head));
         System.out.println("Done!!!");
     }
 
-    public static ListNode reverseList(TNode head) {
-        if(head == null)
-            return head;
+    // public static TNode reverseList(TNode head) {
+    //     if(head == null)
+    //         return head;
 
-        ListNode cNode = head;
-        ListNode firstNode = reverseList(head, cNode);
-        firstNode.next = null;
-        return head;
-    }
+    //     TNode cNode = head;
+    //     TNode firstNode = reverseList(head, cNode);
+    //     firstNode.next = null;
+    //     return head;
+    // }
 
-    public static ListNode reverseList(ListNode head, ListNode cNode)
+    public static TNode reverseList(TNode head)
     {
-        if(cNode.next == null)
+        if(head==null || head.next==null)
+            return head;
+        
+        return reverseList(head, head.next);
+    }
+    public static TNode reverseList(TNode pNode,TNode cNode)
+    {
+        if(cNode == null)
         {
-            head = cNode;//last node becomes head
-            return cNode;
+            return pNode;
         }
 
-        ListNode previousNode = reverseList(head, cNode.next);
-        previousNode.next = cNode;
-        return cNode;
+        TNode head=reverseList(cNode,cNode.next);
+        cNode.next = pNode;
+        return head;
     }
-
-    
 }
 
 class Tree{
@@ -67,6 +78,7 @@ class Tree{
             t=t.next;
         }
         System.out.print("null");
+        System.out.println();
     }
 
     
