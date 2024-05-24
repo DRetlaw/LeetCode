@@ -74,7 +74,7 @@ class Tree{
         TNode t=head;
         while(t!=null)
         {
-            System.out.print(t.val+"->");
+            System.out.print(t.val+"->>>");
             t=t.next;
         }
         System.out.print("null");
